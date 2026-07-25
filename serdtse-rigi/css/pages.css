@@ -1,0 +1,621 @@
+/* ==========================================================================
+   Page layout: hero, stats, split, генплан, дома, технологии, инфраструктура
+   ========================================================================== */
+
+/* ---------------------------------- Hero ------------------------------------ */
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--color-dark-text);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 19, 15, 0.35) 0%,
+    rgba(20, 19, 15, 0.4) 40%,
+    rgba(20, 19, 15, 0.86) 82%,
+    #14130f 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: var(--space-10) var(--space-8);
+}
+
+.hero__title {
+  max-width: 18ch;
+  margin-block: var(--space-4);
+  color: var(--color-dark-text);
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.hero__subtitle {
+  max-width: 52ch;
+  color: var(--color-dark-text-muted);
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-6);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+
+.hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-dark-border);
+}
+
+.hero__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__badge strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--color-gold);
+}
+
+.hero__badge span {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-dark-text-muted);
+}
+
+/* Page hero (для внутренних якорей, если понадобится короче) */
+.page-hero {
+  position: relative;
+  min-height: 46vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--color-dark-text);
+}
+
+.page-hero .hero__media::after {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 19, 15, 0.4) 0%,
+    rgba(20, 19, 15, 0.85) 85%,
+    #14130f 100%
+  );
+}
+
+/* ------------------------------- Stats strip --------------------------------- */
+.stats {
+  border-block: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-block: var(--space-7);
+}
+
+.stats__item {
+  text-align: center;
+  border-right: 1px solid var(--color-border);
+  padding-inline: var(--space-4);
+  min-width: 0;
+}
+
+.stats__item:last-child {
+  border-right: none;
+}
+
+.stats__number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--color-gold-deep);
+  margin-bottom: var(--space-2);
+}
+
+.stats__label {
+  font-size: var(--fs-xs);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+@media (max-width: 720px) {
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6) 0;
+  }
+
+  .stats__item:nth-child(2) {
+    border-right: none;
+  }
+
+  .stats__item:nth-child(1),
+  .stats__item:nth-child(2) {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-5);
+  }
+}
+
+/* ---------------------------------- Split ------------------------------------ */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.split > * {
+  min-width: 0;
+}
+
+.split--reverse .split__media {
+  order: 2;
+}
+
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .split--reverse .split__media {
+    order: 0;
+  }
+}
+
+.split__media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+  box-shadow: var(--shadow-lg);
+}
+
+.split__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.split__text p {
+  color: var(--color-ink-muted);
+  margin-block: var(--space-5);
+}
+
+.split__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-block: var(--space-6);
+}
+
+.split__list li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  color: var(--color-ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.split__list svg {
+  flex-shrink: 0;
+  color: var(--color-gold-deep);
+  margin-top: 3px;
+}
+
+/* ---------------------------- Grids --------------------------------- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.grid-3 > * {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.grid-4 > * {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-foot {
+  margin-top: var(--space-8);
+  text-align: center;
+}
+
+/* -------------------------------- Дома (типы) ----------------------------------- */
+.house-card__media {
+  position: relative;
+}
+
+.house-card__price {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--color-overlay-strong);
+  border: 1px solid var(--color-gold-soft);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+}
+
+.house-card__specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.house-card__specs div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.house-card__specs dt {
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+.house-card__specs dd {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-size: var(--fs-md);
+}
+
+/* -------------------------------- Генплан ----------------------------------- */
+.plan-wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.plan-wrapper > * {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .plan-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  cursor: zoom-in;
+}
+
+.plan-legend {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.plan-legend h4 {
+  margin-bottom: var(--space-5);
+  font-size: var(--fs-md);
+}
+
+.plan-legend ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.plan-legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+.plan-legend .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.plan-legend .dot--sold { background: var(--color-status-sold); }
+.plan-legend .dot--reserved { background: var(--color-status-reserved); }
+.plan-legend .dot--available { background: var(--color-status-available); }
+
+.plan-legend .hint {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-faint);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+/* -------------------------------- Технологии ----------------------------------- */
+.tech-item {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.tech-item__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-forest-soft);
+  color: var(--color-forest);
+}
+
+.tech-item h3 {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-2);
+}
+
+.tech-item p {
+  color: var(--color-ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* -------------------------------- Инфраструктура ----------------------------------- */
+.amenity-card {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.amenity-card .tech-item__icon {
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+  background: var(--color-gold-soft);
+  color: var(--color-gold-deep);
+}
+
+.amenity-card h3 {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-2);
+}
+
+.amenity-card p {
+  color: var(--color-ink-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ----------------------------------- CTA band ----------------------------------- */
+.cta-band {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: var(--space-9) var(--space-8);
+  text-align: center;
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  border: 1px solid var(--color-dark-border);
+}
+
+.cta-band h2 {
+  max-width: 26ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+  color: var(--color-dark-text);
+}
+
+.cta-band .lede {
+  margin-inline: auto;
+  margin-bottom: var(--space-7);
+  color: var(--color-dark-text-muted);
+}
+
+.cta-band__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* -------------------------------- Локация ------------------------------ */
+.location {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-9);
+  align-items: stretch;
+}
+
+.location > * {
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .location {
+    grid-template-columns: 1fr;
+  }
+}
+
+.location-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.location-list li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+.location-list svg {
+  color: var(--color-forest);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.map-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 340px;
+  border: 1px solid var(--color-border);
+}
+
+.map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* -------------------------------- Contact page layout ------------------------------ */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-9);
+  align-items: start;
+}
+
+.contact-layout > * {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-card {
+  background: var(--color-dark-surface);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+}
+
+.info-card + .info-card {
+  margin-top: var(--space-5);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.contact-list a,
+.contact-list span {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  font-size: var(--fs-sm);
+  color: var(--color-dark-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.contact-list svg {
+  color: var(--color-gold);
+}
+
+.contact-list a:hover {
+  color: var(--color-dark-text);
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--space-6);
+}
+
+.hours-table td {
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-dark-border);
+  font-size: var(--fs-sm);
+}
+
+.hours-table td:first-child {
+  color: var(--color-dark-text);
+}
+
+.hours-table td:last-child {
+  text-align: right;
+  color: var(--color-dark-text-muted);
+}
