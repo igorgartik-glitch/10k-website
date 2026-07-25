@@ -1,0 +1,46 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+# Note: This Actions-based deploy needs the default GITHUB_TOKEN to have
+# permission to create the Pages site for the first time, which this repo's
+# workflow-permissions setting doesn't currently allow ("Resource not
+# accessible by integration"). The site is deployed instead via a direct
+# push to the gh-pages branch, which GitHub auto-detected and enabled as
+# the Pages source. To use this workflow, set Settings > Actions > General
+# > Workflow permissions to "Read and write permissions", then run it
+# manually (or re-add a push trigger above).
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
