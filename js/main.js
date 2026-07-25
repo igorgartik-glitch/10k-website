@@ -227,7 +227,7 @@
       let isValid = true;
 
       form.querySelectorAll("[required]").forEach((field) => {
-        const wrapper = field.closest(".form-field");
+        const wrapper = field.closest(".form-field") || field.closest(".waitlist-form");
         const value = field.value.trim();
         let fieldValid = value.length > 0;
 
@@ -261,6 +261,7 @@
 
       window.setTimeout(() => {
         status.textContent =
+          form.getAttribute("data-success-message") ||
           "Thank you — your request has been received. Our team will confirm by phone or email shortly.";
         status.classList.add("form-status--success", "is-visible");
         form.reset();
@@ -270,7 +271,7 @@
 
     form.querySelectorAll("[required]").forEach((field) => {
       field.addEventListener("input", () => {
-        const wrapper = field.closest(".form-field");
+        const wrapper = field.closest(".form-field") || field.closest(".waitlist-form");
         if (wrapper) wrapper.classList.remove("has-error");
       });
     });
