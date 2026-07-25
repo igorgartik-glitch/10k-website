@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ember & Oak — Wood-Fired Steakhouse in Seattle, WA</title>
+  <meta name="description" content="Ember & Oak is a Pacific Northwest steakhouse in downtown Seattle serving dry-aged, wood-fired steaks with locally sourced ingredients. Reserve your table tonight." />
+  <meta name="theme-color" content="#16110d" />
+  <link rel="icon" href="assets/icons/logomark.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://www.emberandoaksteakhouse.com/" />
+
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="Ember & Oak — Wood-Fired Steakhouse in Seattle, WA" />
+  <meta property="og:description" content="Dry-aged, wood-fired steaks and Pacific Northwest hospitality in the heart of Seattle." />
+  <meta property="og:image" content="assets/images/hero/hero-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Ember & Oak",
+    "servesCuisine": "Steakhouse",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1420 Western Avenue",
+      "addressLocality": "Seattle",
+      "addressRegion": "WA",
+      "postalCode": "98101",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-206-555-0142"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon sprite (hidden, referenced via <use>) -->
+  <svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.3 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.3 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14 8.5h2.5V5H14c-2 0-3.5 1.5-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5l.5-3.5h-3V9c0-.3.2-.5.5-.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 3v4M16 3v4M3 10h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="17.2" cy="9" r="2.3" stroke="currentColor" stroke-width="1.4"/><path d="M15.6 14.3c2.2.6 3.8 2.5 4.2 5.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 21c4 0 7-3 7-7 0-3.4-2.3-5.8-4-8-.6 1.6-1.4 2.7-2.5 2.7.3-2.4-.6-4.7-2.2-6.2-.3 2.7-1.5 4.3-3.2 5.9-1.7 1.5-2.1 3.4-2.1 5.6 0 4 3.2 7 7 7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.4"/><path d="M4 17l5.2-5.2a2 2 0 0 1 2.8 0L14 13.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 17l3.3-3.3a2 2 0 0 1 2.8 0L21 15.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <header class="site-header" data-header>
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Ember & Oak — home">
+        <img src="assets/icons/logomark.svg" alt="" width="28" height="28" />
+        <strong>Ember</strong><span>&amp;</span><strong>Oak</strong>
+      </a>
+
+      <nav class="nav-primary" id="primary-navigation" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="private-events.html">Private Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">Reserve a Table</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__media">
+        <picture>
+          <source srcset="assets/images/hero/hero-home-1280.webp 1280w, assets/images/hero/hero-home.webp 2752w" type="image/webp" sizes="100vw" />
+          <img src="assets/images/hero/hero-home.jpg" srcset="assets/images/hero/hero-home-1280.jpg 1280w, assets/images/hero/hero-home.jpg 2752w" sizes="100vw" width="2752" height="1536" alt="Warmly lit dining room at Ember & Oak with timber beams, leather booths, and candlelit tables" fetchpriority="high" />
+        </picture>
+      </div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow eyebrow">Seattle, Washington · Est. 2016</p>
+        <h1 class="hero__title">Wood-Fired Steaks, <em>Elevated</em></h1>
+        <p class="hero__subtitle">Dry-aged in house, seared over live oak fire, and finished with the best the Pacific Northwest has to offer. Ember &amp; Oak is downtown Seattle's home for an unforgettable steakhouse evening.</p>
+        <div class="hero__actions">
+          <a href="contact.html" class="btn btn-primary">Reserve a Table</a>
+          <a href="menu.html" class="btn btn-outline">View Menu</a>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-cue__line"></span>
+      </div>
+    </section>
+
+    <!-- ============================== STATS ============================== -->
+    <section class="stats">
+      <div class="container stats__grid">
+        <div class="stats__item" data-reveal="fade">
+          <span class="stats__number"><span data-count="38">0</span>-Day</span>
+          <span class="stats__label">In-House Dry Aging</span>
+        </div>
+        <div class="stats__item" data-reveal="fade" data-reveal-delay="80">
+          <span class="stats__number"><span data-count="120">0</span>+</span>
+          <span class="stats__label">Wine List Labels</span>
+        </div>
+        <div class="stats__item" data-reveal="fade" data-reveal-delay="160">
+          <span class="stats__number"><span data-count="8">0</span></span>
+          <span class="stats__label">Years in Seattle</span>
+        </div>
+        <div class="stats__item" data-reveal="fade" data-reveal-delay="240">
+          <span class="stats__number"><span data-count="100">0</span>%</span>
+          <span class="stats__label">Pacific NW Sourced Produce</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== STORY SPLIT ============================== -->
+    <section class="section">
+      <div class="container split">
+        <div class="split__media" data-reveal="left">
+          <div class="media-slot" data-label="Chef plating a wood-fired steak">
+            <div class="media-slot__inner">
+              <svg class="icon"><use href="#icon-image"></use></svg>
+              <span class="media-slot__label">Photo placeholder<br />Chef plating tableside</span>
+            </div>
+          </div>
+        </div>
+        <div class="split__text" data-reveal="right">
+          <p class="eyebrow">Our Philosophy</p>
+          <h2>Fire is the Only Ingredient We Never Substitute</h2>
+          <p>Every cut at Ember &amp; Oak is dry-aged in our on-site cellar, then finished over a live oak and applewood fire. It's a slower, more deliberate way to cook a steak — and it's the only way we know how.</p>
+          <ul class="split__list">
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Dry-aged 38+ days in our climate-controlled cellar</li>
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Seared over an open live-fire hearth</li>
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Produce sourced from Washington &amp; Oregon farms</li>
+          </ul>
+          <a href="about.html" class="btn btn-ghost">Read Our Story <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== MENU HIGHLIGHTS ============================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Signature Cuts</p>
+          <h2>From the Hearth</h2>
+          <p class="lede">A few of the steaks and plates our regulars order before they've even sat down.</p>
+        </div>
+
+        <div class="grid-3" data-reveal-group>
+          <article class="card">
+            <div class="card__media menu-card__media">
+              <div class="media-slot" data-label="Tomahawk ribeye">
+                <div class="media-slot__inner">
+                  <svg class="icon"><use href="#icon-image"></use></svg>
+                  <span class="media-slot__label">Photo placeholder<br />Tomahawk ribeye</span>
+                </div>
+              </div>
+              <span class="menu-card__price">$95</span>
+            </div>
+            <div class="card__body">
+              <h3>32oz Tomahawk Ribeye</h3>
+              <p>Bone-in, dry-aged 45 days, finished with smoked bone marrow butter.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media menu-card__media">
+              <div class="media-slot" data-label="Filet mignon">
+                <div class="media-slot__inner">
+                  <svg class="icon"><use href="#icon-image"></use></svg>
+                  <span class="media-slot__label">Photo placeholder<br />Filet mignon</span>
+                </div>
+              </div>
+              <span class="menu-card__price">$58</span>
+            </div>
+            <div class="card__body">
+              <h3>8oz Center-Cut Filet</h3>
+              <p>Butter-tender filet, peppercorn crust, cabernet reduction.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media menu-card__media">
+              <div class="media-slot" data-label="Dry-aged bone-in ribeye">
+                <div class="media-slot__inner">
+                  <svg class="icon"><use href="#icon-image"></use></svg>
+                  <span class="media-slot__label">Photo placeholder<br />Dry-aged ribeye</span>
+                </div>
+              </div>
+              <span class="menu-card__price">$72</span>
+            </div>
+            <div class="card__body">
+              <h3>16oz Bone-In Ribeye</h3>
+              <p>45-day dry-aged, hearth-seared, Maldon salt, rosemary jus.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-foot">
+          <a href="menu.html" class="btn btn-outline">View Full Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== GALLERY PREVIEW ============================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Inside Ember &amp; Oak</p>
+          <h2>A Room Built for the Evening</h2>
+        </div>
+
+        <div class="gallery-preview" data-reveal-group>
+          <a href="gallery.html" class="span-2 span-row-2" aria-label="View full gallery">
+            <div class="media-slot" data-label="Dining room">
+              <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+            </div>
+          </a>
+          <a href="gallery.html" aria-label="View full gallery">
+            <div class="media-slot" data-label="Bar">
+              <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+            </div>
+          </a>
+          <a href="gallery.html" aria-label="View full gallery">
+            <div class="media-slot" data-label="Fireplace">
+              <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+            </div>
+          </a>
+          <a href="gallery.html" aria-label="View full gallery">
+            <div class="media-slot" data-label="Plated dish">
+              <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+            </div>
+          </a>
+          <a href="gallery.html" aria-label="View full gallery">
+            <div class="media-slot" data-label="Private room">
+              <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+            </div>
+          </a>
+        </div>
+
+        <div class="section-foot">
+          <a href="gallery.html" class="btn btn-outline">View Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PRESS / TESTIMONIALS ============================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">As Featured In</p>
+        </div>
+      </div>
+
+      <div class="marquee">
+        <div class="marquee__track">
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Seattle Met</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Eater Seattle</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>The Stranger</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Seattle Times</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Zagat</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Seattle Met</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Eater Seattle</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>The Stranger</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Seattle Times</span>
+          <span class="press-marquee-item"><svg class="icon"><use href="#icon-flame"></use></svg>Zagat</span>
+        </div>
+      </div>
+
+      <div class="container" style="margin-top: var(--space-8);">
+        <div class="grid-3" data-reveal-group>
+          <div class="quote-card">
+            <blockquote>"The best dry-aged ribeye north of Portland. Worth the wait for a table."</blockquote>
+            <cite>Seattle Met, 2025</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"An old-school steakhouse with a Pacific Northwest soul — and a wine list to match."</blockquote>
+            <cite>Eater Seattle</cite>
+          </div>
+          <div class="quote-card">
+            <blockquote>"Ember & Oak understands that a great steak needs almost nothing else on the plate."</blockquote>
+            <cite>The Stranger</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PRIVATE EVENTS TEASER ============================== -->
+    <section class="section">
+      <div class="container split split--reverse">
+        <div class="split__media" data-reveal="right">
+          <div class="media-slot" data-label="Private dining room set for a group dinner">
+            <div class="media-slot__inner">
+              <svg class="icon"><use href="#icon-image"></use></svg>
+              <span class="media-slot__label">Photo placeholder<br />Private dining room</span>
+            </div>
+          </div>
+        </div>
+        <div class="split__text" data-reveal="left">
+          <p class="eyebrow">Private Dining</p>
+          <h2>Host Your Next Gathering by the Fire</h2>
+          <p>From intimate dinners to full restaurant buyouts, our private rooms seat 10 to 90 guests with dedicated service and custom menus built around the hearth.</p>
+          <a href="private-events.html" class="btn btn-ghost">Explore Private Events <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA BAND ============================== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale">
+          <p class="eyebrow" style="justify-content:center;">Tonight's Table</p>
+          <h2>Pull Up a Seat by the Fire</h2>
+          <p class="lede">Tables move quickly on weekends — reserve online or call us directly and we'll take care of the rest.</p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn-primary">Reserve a Table</a>
+            <a href="tel:+12065550142" class="btn btn-outline">Call (206) 555-0142</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== LOCATION ============================== -->
+    <section class="section section--alt">
+      <div class="container location">
+        <div data-reveal="left">
+          <p class="eyebrow">Find Us</p>
+          <h2>Downtown Seattle</h2>
+          <table class="hours-table">
+            <tbody>
+              <tr><td>Monday – Thursday</td><td>4:30pm – 10:00pm</td></tr>
+              <tr><td>Friday – Saturday</td><td>4:30pm – 11:00pm</td></tr>
+              <tr><td>Sunday</td><td>4:00pm – 9:00pm</td></tr>
+            </tbody>
+          </table>
+          <div class="contact-list">
+            <a href="https://maps.google.com/?q=1420+Western+Avenue+Seattle+WA+98101" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-pin"></use></svg> 1420 Western Avenue, Seattle, WA 98101</a>
+            <a href="tel:+12065550142"><svg class="icon"><use href="#icon-phone"></use></svg> (206) 555-0142</a>
+            <a href="mailto:reservations@emberandoaksteakhouse.com"><svg class="icon"><use href="#icon-mail"></use></svg> reservations@emberandoaksteakhouse.com</a>
+          </div>
+        </div>
+        <div class="map-frame" data-reveal="right">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-122.3550%2C47.6030%2C-122.3260%2C47.6170&layer=mapnik&marker=47.6100,-122.3410"
+            title="Map showing Ember & Oak's location in downtown Seattle"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand" style="margin-bottom: var(--space-4); display:inline-flex;">
+            <img src="assets/icons/logomark.svg" alt="" width="28" height="28" />
+            <strong>Ember</strong><span>&amp;</span><strong>Oak</strong>
+          </a>
+          <p>Wood-fired steaks and Pacific Northwest hospitality in the heart of Seattle.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Ember & Oak on Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+            <a href="#" aria-label="Ember & Oak on Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="private-events.html">Private Events</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <address>1420 Western Avenue<br />Seattle, WA 98101</address>
+          <p style="margin-top: var(--space-3);"><a href="tel:+12065550142">(206) 555-0142</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon–Thu 4:30–10pm</li>
+            <li>Fri–Sat 4:30–11pm</li>
+            <li>Sun 4–9pm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> Ember &amp; Oak Steakhouse. All rights reserved.</p>
+        <p>Seattle, Washington</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

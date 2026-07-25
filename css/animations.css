@@ -1,0 +1,311 @@
+/* ==========================================================================
+   Animations — scroll reveals, hero entrance, marquee, lightbox
+   All motion respects prefers-reduced-motion (see bottom of file).
+   ========================================================================== */
+
+/* ---- Generic scroll reveal ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+[data-reveal="left"].is-visible {
+  transform: translateX(0);
+}
+
+[data-reveal="right"] {
+  transform: translateX(32px);
+}
+
+[data-reveal="right"].is-visible {
+  transform: translateX(0);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.94);
+}
+
+[data-reveal="scale"].is-visible {
+  transform: scale(1);
+}
+
+/* Staggered children */
+[data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-base) var(--ease-out-expo),
+    transform var(--duration-base) var(--ease-out-expo);
+}
+
+[data-reveal-group].is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-group].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 70ms; }
+[data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 140ms; }
+[data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 210ms; }
+[data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 280ms; }
+[data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 350ms; }
+[data-reveal-group].is-visible > *:nth-child(7) { transition-delay: 420ms; }
+[data-reveal-group].is-visible > *:nth-child(8) { transition-delay: 490ms; }
+
+/* ---- Hero entrance ---- */
+.hero__eyebrow,
+.hero__title,
+.hero__subtitle,
+.hero__actions {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: hero-in var(--duration-hero) var(--ease-out-expo) forwards;
+}
+
+.hero__eyebrow { animation-delay: 120ms; }
+.hero__title { animation-delay: 260ms; }
+.hero__subtitle { animation-delay: 460ms; }
+.hero__actions { animation-delay: 620ms; }
+
+@keyframes hero-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__media {
+  animation: hero-media-in 1400ms var(--ease-out-expo) forwards;
+}
+
+@keyframes hero-media-in {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slow continuous ambient zoom for hero background */
+.hero__media img {
+  animation: hero-ken-burns 24s ease-in-out infinite alternate;
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* ---- Divider draw-in ---- */
+.divider-line {
+  position: relative;
+  height: 1px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.divider-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 900ms var(--ease-out-expo);
+}
+
+.divider-line.is-visible::after {
+  transform: scaleX(1);
+}
+
+/* ---- Number count-up target ---- */
+[data-count] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Lightbox ---- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: var(--color-overlay-strong);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-out-soft),
+    visibility 0s linear var(--duration-base);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--duration-base) var(--ease-out-soft);
+}
+
+.lightbox__figure {
+  max-width: min(90vw, 1100px);
+  max-height: 85vh;
+  transform: scale(0.96);
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+
+.lightbox.is-open .lightbox__figure {
+  transform: scale(1);
+}
+
+.lightbox__figure img {
+  max-height: 85vh;
+  width: auto;
+  margin-inline: auto;
+  border-radius: var(--radius-md);
+}
+
+.lightbox__caption {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.lightbox__nav:hover,
+.lightbox__nav:focus-visible {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.lightbox__nav--prev {
+  left: var(--space-6);
+}
+
+.lightbox__nav--next {
+  right: var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .lightbox__nav,
+  .lightbox__close {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ---- Marquee (press logos / awards strip) ---- */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  gap: var(--space-9);
+  animation: marquee-scroll 34s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Reduced motion: disable/soften everything above ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  [data-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero__eyebrow,
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions,
+  .hero__media {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__media img {
+    animation: none !important;
+  }
+
+  .marquee__track {
+    animation: none !important;
+  }
+
+  .card:hover,
+  .btn:hover {
+    transform: none !important;
+  }
+
+  .divider-line::after {
+    transition: none !important;
+    transform: scaleX(1) !important;
+  }
+}
