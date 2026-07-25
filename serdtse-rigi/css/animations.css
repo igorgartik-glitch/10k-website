@@ -1,0 +1,224 @@
+/* ==========================================================================
+   Animations — scroll reveals, hero entrance, lightbox
+   Все анимации уважают prefers-reduced-motion (см. конец файла).
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+[data-reveal="left"].is-visible {
+  transform: translateX(0);
+}
+
+[data-reveal="right"] {
+  transform: translateX(32px);
+}
+
+[data-reveal="right"].is-visible {
+  transform: translateX(0);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.94);
+}
+
+[data-reveal="scale"].is-visible {
+  transform: scale(1);
+}
+
+[data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-base) var(--ease-out-expo),
+    transform var(--duration-base) var(--ease-out-expo);
+}
+
+[data-reveal-group].is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-group].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal-group].is-visible > *:nth-child(2) { transition-delay: 70ms; }
+[data-reveal-group].is-visible > *:nth-child(3) { transition-delay: 140ms; }
+[data-reveal-group].is-visible > *:nth-child(4) { transition-delay: 210ms; }
+[data-reveal-group].is-visible > *:nth-child(5) { transition-delay: 280ms; }
+[data-reveal-group].is-visible > *:nth-child(6) { transition-delay: 350ms; }
+
+/* ---- Hero entrance ---- */
+.hero__eyebrow,
+.hero__title,
+.hero__subtitle,
+.hero__actions,
+.hero__badges {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: hero-in var(--duration-hero) var(--ease-out-expo) forwards;
+}
+
+.hero__eyebrow { animation-delay: 120ms; }
+.hero__title { animation-delay: 260ms; }
+.hero__subtitle { animation-delay: 440ms; }
+.hero__actions { animation-delay: 600ms; }
+.hero__badges { animation-delay: 740ms; }
+
+@keyframes hero-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__media {
+  animation: hero-media-in 1400ms var(--ease-out-expo) forwards;
+}
+
+@keyframes hero-media-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---- Divider draw-in ---- */
+.divider-line {
+  position: relative;
+  height: 1px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.divider-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold-deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 900ms var(--ease-out-expo);
+}
+
+.divider-line.is-visible::after {
+  transform: scaleX(1);
+}
+
+[data-count] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Lightbox (для генплана / галереи) ---- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: var(--color-overlay-strong);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-base) var(--ease-out-soft),
+    visibility 0s linear var(--duration-base);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--duration-base) var(--ease-out-soft);
+}
+
+.lightbox__figure {
+  max-width: min(92vw, 1200px);
+  max-height: 88vh;
+  transform: scale(0.96);
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+
+.lightbox.is-open .lightbox__figure {
+  transform: scale(1);
+}
+
+.lightbox__figure img,
+.lightbox__figure .media-slot {
+  max-height: 80vh;
+  width: auto;
+  margin-inline: auto;
+  border-radius: var(--radius-md);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-dark-border);
+  color: var(--color-dark-text);
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  [data-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero__eyebrow,
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions,
+  .hero__badges,
+  .hero__media {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .card:hover,
+  .btn:hover {
+    transform: none !important;
+  }
+
+  .divider-line::after {
+    transition: none !important;
+    transform: scaleX(1) !important;
+  }
+}

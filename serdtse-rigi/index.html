@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Сердце Риги — коттеджный посёлок, 18 км от МКАД</title>
+  <meta name="description" content="Сердце Риги — 52 коттеджа 317–379 м² на Новорижском шоссе, 18 км от МКАД. Охраняемая территория, спа-комплекс, собственная инфраструктура. Запишитесь на просмотр." />
+  <meta name="theme-color" content="#14130f" />
+  <link rel="icon" href="assets/icons/logomark.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Сердце Риги — коттеджный посёлок, 18 км от МКАД" />
+  <meta property="og:description" content="52 коттеджа 317–379 м² на Новорижском шоссе. Охраняемая территория, спа-комплекс, собственная инфраструктура." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Icon sprite -->
+  <svg style="position:absolute; width:0; height:0; overflow:hidden" aria-hidden="true">
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.3 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.3 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.4"/><path d="M4 17l5.2-5.2a2 2 0 0 1 2.8 0L14 13.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 17l3.3-3.3a2 2 0 0 1 2.8 0L21 15.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-tree" viewBox="0 0 24 24"><path d="M12 21v-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 15c-4 0-6-3-6-6.5C6 5 8 3 12 3s6 2 6 5.5C18 12 16 15 12 15Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 12l9 5 9-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 16l9 5 9-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-facade" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1" stroke="currentColor" stroke-width="1.4"/><path d="M4 9.5h16M4 14.5h16M9.5 4v16M14.5 4v16" stroke="currentColor" stroke-width="1.2"/></symbol>
+    <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-wifi" viewBox="0 0 24 24"><path d="M3 9c5-4 13-4 18 0M6 12.5c3.5-2.6 8.5-2.6 12 0M9.5 16c1.6-1.2 3.4-1.2 5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="19" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="icon-spa" viewBox="0 0 24 24"><path d="M12 3c4 3 6 6 6 10a6 6 0 0 1-12 0c0-4 2-7 6-10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M7 7v10M17 7v10M20 9v6M7 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-car" viewBox="0 0 24 24"><path d="M4 16l1.5-5A2 2 0 0 1 7.4 9h9.2a2 2 0 0 1 1.9 1.4L20 16" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="3" y="16" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/><circle cx="7.5" cy="20" r="1.2" fill="currentColor"/><circle cx="16.5" cy="20" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="icon-balloon" viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 1 5 5c0 3-2 5-4 6l.5 3h-3l.5-3c-2-1-4-3-4-6a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 21c4 0 7-3 7-7 0-3.4-2.3-5.8-4-8-.6 1.6-1.4 2.7-2.5 2.7.3-2.4-.6-4.7-2.2-6.2-.3 2.7-1.5 4.3-3.2 5.9-1.7 1.5-2.1 3.4-2.1 5.6 0 4 3.2 7 7 7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24"><path d="M4 12l16-7-6.5 16-2.5-6.5L4 12Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor"/></symbol>
+  </svg>
+
+  <header class="site-header" data-header>
+    <div class="container">
+      <a href="#main" class="brand" aria-label="Сердце Риги — на главную">
+        <span class="brand__title">Сердце Риги</span>
+        <span class="brand__subtitle">Коттеджный посёлок</span>
+      </a>
+
+      <nav class="nav-primary" id="primary-navigation" aria-label="Основная навигация">
+        <ul class="nav-links">
+          <li><a href="#about">О проекте</a></li>
+          <li><a href="#location">Локация</a></li>
+          <li><a href="#plan">Генплан</a></li>
+          <li><a href="#houses">Дома</a></li>
+          <li><a href="#tech">Технологии</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Оставить заявку</a>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Открыть меню навигации" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="hero__media">
+        <div class="media-slot" data-label="Коттедж среди леса">
+          <div class="media-slot__inner">
+            <svg class="icon"><use href="#icon-image"></use></svg>
+            <span class="media-slot__label">Фото-плейсхолдер<br />Коттедж среди леса</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow eyebrow">Новорижское шоссе · 18 км от МКАД</p>
+        <h1 class="hero__title">Жизнь среди леса, в 25 минутах от <em>города</em></h1>
+        <p class="hero__subtitle">52 коттеджа 317–379 м² на охраняемой территории с собственной инфраструктурой: спа-комплекс, спортивные площадки, ландшафтный парк. Мы совместили ритм мегаполиса со спокойствием загородной жизни.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn-primary">Записаться на просмотр</a>
+          <a href="#plan" class="btn btn-outline">Смотреть генплан</a>
+        </div>
+        <div class="hero__badges">
+          <div class="hero__badge"><strong>52</strong><span>Коттеджа</span></div>
+          <div class="hero__badge"><strong>317–379</strong><span>м² площадь дома</span></div>
+          <div class="hero__badge"><strong>8–15</strong><span>соток участок</span></div>
+          <div class="hero__badge"><strong>2027</strong><span>Срок сдачи</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== STATS ============================== -->
+    <section class="stats">
+      <div class="container stats__grid">
+        <div class="stats__item" data-reveal="fade">
+          <span class="stats__number"><span data-count="52">0</span></span>
+          <span class="stats__label">Коттеджей в посёлке</span>
+        </div>
+        <div class="stats__item" data-reveal="fade" data-reveal-delay="80">
+          <span class="stats__number"><span data-count="3.2" data-count-decimals="1" data-count-suffix=" м">0</span></span>
+          <span class="stats__label">Высота потолков</span>
+        </div>
+        <div class="stats__item" data-reveal="fade" data-reveal-delay="160">
+          <span class="stats__number"><span data-count="18" data-count-suffix=" км">0</span></span>
+          <span class="stats__label">От МКАД</span>
+        </div>
+        <div class="stats__item" data-reveal="fade" data-reveal-delay="240">
+          <span class="stats__number"><span data-count="24" data-count-suffix="/7">0</span></span>
+          <span class="stats__label">Охрана территории</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== О ПРОЕКТЕ ============================== -->
+    <section id="about" class="section">
+      <div class="container split">
+        <div class="split__media" data-reveal="left">
+          <div class="media-slot" data-label="Генеральный план посёлка">
+            <div class="media-slot__inner">
+              <svg class="icon"><use href="#icon-image"></use></svg>
+              <span class="media-slot__label">Фото-плейсхолдер<br />Общий вид посёлка</span>
+            </div>
+          </div>
+        </div>
+        <div class="split__text" data-reveal="right">
+          <p class="eyebrow">О проекте</p>
+          <h2>Гармония ритма мегаполиса и загородного спокойствия</h2>
+          <p>«Сердце Риги» — закрытый коттеджный посёлок на 52 домовладения, спроектированный для тех, кто ценит тишину леса, но не готов отказаться от близости к городу. Каждый коттедж расположен так, чтобы сохранить приватность и вид на естественный ландшафт участка.</p>
+          <ul class="split__list">
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Закрытая охраняемая территория с единым въездом</li>
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Собственный ландшафтный парк и пешие маршруты</li>
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Инженерные сети и благоустройство — без затрат покупателя</li>
+          </ul>
+          <a href="#houses" class="btn btn-ghost">Смотреть типы домов <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ЛОКАЦИЯ ============================== -->
+    <section id="location" class="section section--alt">
+      <div class="container location">
+        <div data-reveal="left">
+          <p class="eyebrow">Расположение</p>
+          <h2>18 км от МКАД по Новорижскому шоссе</h2>
+          <p class="lede">Посёлок расположен в экологически чистом районе, окружённом сосновым лесом, в 25 минутах от Москвы на автомобиле.</p>
+          <ul class="location-list">
+            <li><svg class="icon"><use href="#icon-tree"></use></svg> Сосновый лес и природоохранная зона в шаговой доступности</li>
+            <li><svg class="icon"><use href="#icon-pin"></use></svg> 7 км до ближайшего города с полной инфраструктурой</li>
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Школы, детские сады и медицинские центры — в 10–15 минутах</li>
+            <li><svg class="icon"><use href="#icon-check"></use></svg> Рестораны, фитнес-клубы и торговые центры поблизости</li>
+          </ul>
+        </div>
+        <div class="map-frame" data-reveal="right">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=36.6000%2C55.7600%2C36.8200%2C55.8600&layer=mapnik"
+            title="Карта расположения посёлка «Сердце Риги»"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ГЕНПЛАН ============================== -->
+    <section id="plan" class="section">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Генеральный план</p>
+          <h2>52 участка, спроектированных для приватности</h2>
+          <p class="lede">Нажмите на генплан, чтобы рассмотреть расположение и статус участков подробнее.</p>
+        </div>
+
+        <div class="plan-wrapper" data-reveal="fade">
+          <button class="plan-media" data-lightbox-trigger aria-label="Открыть генплан в полном размере">
+            <div class="media-slot" data-label="Генплан посёлка">
+              <div class="media-slot__inner">
+                <svg class="icon"><use href="#icon-image"></use></svg>
+                <span class="media-slot__label">Фото-плейсхолдер<br />Интерактивный генплан</span>
+              </div>
+            </div>
+          </button>
+
+          <div class="plan-legend">
+            <h4>Статус участков</h4>
+            <ul>
+              <li><span class="dot dot--available"></span> В продаже</li>
+              <li><span class="dot dot--reserved"></span> Забронировано</li>
+              <li><span class="dot dot--sold"></span> Продано</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-block">Уточнить наличие участков</a>
+            <p class="hint">Актуальный статус участков уточняйте у менеджера по продажам — генплан обновляется по мере бронирования.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ДОМА ============================== -->
+    <section id="houses" class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Типы домов</p>
+          <h2>Три планировки, один стандарт качества</h2>
+        </div>
+
+        <div class="grid-3" data-reveal-group>
+          <article class="card">
+            <div class="card__media house-card__media">
+              <div class="media-slot" data-label="Коттедж «Берёза»">
+                <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+              </div>
+              <span class="house-card__price">от 58 млн ₽</span>
+            </div>
+            <div class="card__body">
+              <h3>«Берёза» — 317 м²</h3>
+              <p>2 этажа + мансарда, гараж на 2 машины, терраса с видом на лес.</p>
+              <dl class="house-card__specs">
+                <div><dt>Участок</dt><dd>от 8 соток</dd></div>
+                <div><dt>Потолки</dt><dd>3,2 м</dd></div>
+                <div><dt>Спальни</dt><dd>4</dd></div>
+                <div><dt>Гараж</dt><dd>2 авто</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media house-card__media">
+              <div class="media-slot" data-label="Коттедж «Дуб»">
+                <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+              </div>
+              <span class="house-card__price">от 67 млн ₽</span>
+            </div>
+            <div class="card__body">
+              <h3>«Дуб» — 348 м²</h3>
+              <p>2 этажа, кабинет и гостевая спальня на первом этаже, увеличенная гостиная.</p>
+              <dl class="house-card__specs">
+                <div><dt>Участок</dt><dd>от 10 соток</dd></div>
+                <div><dt>Потолки</dt><dd>3,2 м</dd></div>
+                <div><dt>Спальни</dt><dd>5</dd></div>
+                <div><dt>Гараж</dt><dd>2 авто</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__media house-card__media">
+              <div class="media-slot" data-label="Коттедж «Кедр»">
+                <div class="media-slot__inner"><svg class="icon"><use href="#icon-image"></use></svg></div>
+              </div>
+              <span class="house-card__price">от 79 млн ₽</span>
+            </div>
+            <div class="card__body">
+              <h3>«Кедр» — 379 м²</h3>
+              <p>2 этажа и цокольный этаж с бассейном или спортзалом на выбор, гараж на 3 машины.</p>
+              <dl class="house-card__specs">
+                <div><dt>Участок</dt><dd>от 12 соток</dd></div>
+                <div><dt>Потолки</dt><dd>3,2 м</dd></div>
+                <div><dt>Спальни</dt><dd>5–6</dd></div>
+                <div><dt>Гараж</dt><dd>3 авто</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-foot">
+          <a href="#contact" class="btn btn-outline">Получить полную презентацию планировок</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ТЕХНОЛОГИИ ============================== -->
+    <section id="tech" class="section">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Технологии строительства</p>
+          <h2>Строим так, чтобы дом служил десятилетиями</h2>
+        </div>
+
+        <div class="grid-3" data-reveal-group>
+          <div class="tech-item">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-layers"></use></svg></div>
+            <div>
+              <h3>Монолитный фундамент</h3>
+              <p>Железобетонный фундамент с многослойной гидроизоляцией и утеплением по периметру.</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-facade"></use></svg></div>
+            <div>
+              <h3>Тёплая керамика</h3>
+              <p>Несущие стены из керамического блока — естественная терморегуляция без лишней химии.</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-facade"></use></svg></div>
+            <div>
+              <h3>Вентилируемый фасад</h3>
+              <p>Натуральный камень и дерево на вентилируемой подсистеме — фасад дышит и не требует ухода.</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-bolt"></use></svg></div>
+            <div>
+              <h3>Инженерные сети</h3>
+              <p>Централизованные водопровод, канализация и газ — подключены на этапе строительства.</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-wifi"></use></svg></div>
+            <div>
+              <h3>Умный дом</h3>
+              <p>Базовый пакет умного дома и оптоволоконный интернет устанавливаются застройщиком.</p>
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-tree"></use></svg></div>
+            <div>
+              <h3>Озеленение участков</h3>
+              <p>Ландшафтное благоустройство прилегающей территории включено в стоимость дома.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ИНФРАСТРУКТУРА ============================== -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow">Инфраструктура посёлка</p>
+          <h2>Всё для жизни — внутри периметра</h2>
+        </div>
+
+        <div class="grid-4" data-reveal-group>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-shield"></use></svg></div>
+            <h3>Охрана 24/7</h3>
+            <p>Круглосуточный пост охраны и видеонаблюдение по периметру.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-spa"></use></svg></div>
+            <h3>Спа-комплекс</h3>
+            <p>Бассейн, сауна и зона отдыха для жителей посёлка.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-dumbbell"></use></svg></div>
+            <h3>Спортивные площадки</h3>
+            <p>Теннисный корт и площadка для воркаута на территории.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-car"></use></svg></div>
+            <h3>Гостевая парковка</h3>
+            <p>Отдельная зона парковки для гостей у центрального въезда.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-balloon"></use></svg></div>
+            <h3>Детская площадка</h3>
+            <p>Игровой комплекс и безопасное покрытие для детей всех возрастов.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-flame"></use></svg></div>
+            <h3>Зона барбекю</h3>
+            <p>Оборудованные зоны для отдыха и барбекю в парковой части посёлка.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-tree"></use></svg></div>
+            <h3>Ландшафтный парк</h3>
+            <p>Пешие маршруты и озеленённые общественные зоны посёлка.</p>
+          </div>
+          <div class="card amenity-card">
+            <div class="tech-item__icon"><svg class="icon"><use href="#icon-shield"></use></svg></div>
+            <h3>Единый въезд</h3>
+            <p>Контроль доступа и шлагбаум на единственном въезде в посёлок.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== CTA BAND ============================== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale">
+          <p class="eyebrow" style="justify-content:center;">Ограниченное количество участков</p>
+          <h2>Запишитесь на просмотр посёлка</h2>
+          <p class="lede">Покажем свободные участки, ответим на вопросы по планировкам и подберём дом под ваш бюджет.</p>
+          <div class="cta-band__actions">
+            <a href="#contact" class="btn btn-primary">Оставить заявку</a>
+            <a href="tel:+74951234567" class="btn btn-outline">Позвонить: +7 (495) 123-45-67</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== КОНТАКТЫ / ЗАЯВКА ============================== -->
+    <section id="contact" class="section section--dark">
+      <div class="container contact-layout">
+        <div data-reveal="left">
+          <p class="eyebrow">Заявка на просмотр</p>
+          <h2>Оставьте контакты — мы перезвоним</h2>
+          <p class="lede" style="margin-bottom: var(--space-6);">Ответим в течение рабочего дня и подберём удобное время для просмотра посёлка и свободных участков.</p>
+
+          <form data-validate novalidate data-success-message="Спасибо! Заявка принята — наш менеджер свяжется с вами в ближайшее рабочее время.">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="lead-name">Имя <span class="required">*</span></label>
+                <input type="text" id="lead-name" name="name" required autocomplete="name" />
+                <span class="error-message">Пожалуйста, укажите имя.</span>
+              </div>
+              <div class="form-field">
+                <label for="lead-phone">Телефон <span class="required">*</span></label>
+                <input type="tel" id="lead-phone" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel" />
+                <span class="error-message">Пожалуйста, укажите корректный телефон.</span>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="lead-time">Удобное время звонка</label>
+                <select id="lead-time" name="callback-time">
+                  <option value="any">Не имеет значения</option>
+                  <option value="morning">Утром (9:00–12:00)</option>
+                  <option value="afternoon">Днём (12:00–17:00)</option>
+                  <option value="evening">Вечером (17:00–20:00)</option>
+                </select>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="lead-message">Комментарий</label>
+                <textarea id="lead-message" name="message" placeholder="Например: интересует дом «Дуб», хочу узнать про рассрочку"></textarea>
+              </div>
+              <div class="form-field form-field--full">
+                <label class="form-consent">
+                  <input type="checkbox" name="consent" required />
+                  <span>Согласен(на) на обработку персональных данных в соответствии с <a href="#">политикой конфиденциальности</a> <span class="required">*</span></span>
+                </label>
+                <span class="error-message">Необходимо согласие на обработку персональных данных.</span>
+              </div>
+            </div>
+            <div style="margin-top: var(--space-6);">
+              <button type="submit" class="btn btn-primary">Отправить заявку</button>
+            </div>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div data-reveal="right">
+          <div class="info-card">
+            <h4 class="eyebrow">Офис продаж</h4>
+            <div class="contact-list">
+              <a href="https://maps.google.com/?q=Новорижское+шоссе+18+км+от+МКАД" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-pin"></use></svg> Новорижское шоссе, 18 км от МКАД</a>
+              <a href="tel:+74951234567"><svg class="icon"><use href="#icon-phone"></use></svg> +7 (495) 123-45-67</a>
+              <a href="mailto:info@serdtse-rigi.ru"><svg class="icon"><use href="#icon-mail"></use></svg> info@serdtse-rigi.ru</a>
+            </div>
+            <table class="hours-table">
+              <tbody>
+                <tr><td>Пн – Пт</td><td>9:00 – 20:00</td></tr>
+                <tr><td>Сб – Вс</td><td>10:00 – 18:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox для генплана -->
+  <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр генплана">
+    <button class="lightbox__close" aria-label="Закрыть просмотр"><svg class="icon"><use href="#icon-close"></use></svg></button>
+    <figure class="lightbox__figure">
+      <div class="media-slot" data-label="Генплан посёлка (полный размер)" style="aspect-ratio: 4/3; border-radius: var(--radius-md);">
+        <div class="media-slot__inner">
+          <svg class="icon"><use href="#icon-image"></use></svg>
+          <span class="media-slot__label">Фото-плейсхолдер<br />Генплан в полном размере</span>
+        </div>
+      </div>
+    </figure>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="brand__title" style="color: var(--color-dark-text); display:block; margin-bottom: var(--space-4);">Сердце Риги</span>
+          <p>Коттеджный посёлок на Новорижском шоссе, 18 км от МКАД.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Сердце Риги в Telegram"><svg class="icon"><use href="#icon-send"></use></svg></a>
+            <a href="#" aria-label="Сердце Риги в Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Разделы</h4>
+          <ul>
+            <li><a href="#about">О проекте</a></li>
+            <li><a href="#location">Локация</a></li>
+            <li><a href="#plan">Генплан</a></li>
+            <li><a href="#houses">Дома</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <address>Новорижское шоссе, 18 км от МКАД</address>
+          <p style="margin-top: var(--space-3);"><a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Часы работы</h4>
+          <ul>
+            <li>Пн – Пт: 9:00 – 20:00</li>
+            <li>Сб – Вс: 10:00 – 18:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> «Сердце Риги». Все права защищены.</p>
+        <p><a href="#">Политика конфиденциальности</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
