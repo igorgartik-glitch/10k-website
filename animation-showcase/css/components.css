@@ -1,0 +1,620 @@
+/* ==========================================================================
+   Demo components — waitlist morph, tilt card, sliding tabs, modal, accordion
+   ========================================================================== */
+
+/* ==================================================================
+   1. Waitlist button morph (idle → loading spinner → success + confetti)
+   ================================================================== */
+.waitlist {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.waitlist__pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-strong);
+  padding: 6px;
+  transition: background-color 420ms var(--ease-out-soft),
+    border-color 420ms var(--ease-out-soft), box-shadow 420ms var(--ease-out-soft);
+}
+
+.waitlist__pill[data-state="success"] {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.15), 0 8px 30px var(--success-glow);
+}
+
+.waitlist__pill[data-state="loading"] {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.waitlist__input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: none;
+  border: 0;
+  padding-inline: var(--space-4);
+  color: var(--text);
+  font-size: 0.9375rem;
+  transition: opacity 260ms var(--ease-out-soft), width 420ms var(--ease-out-expo),
+    flex 420ms var(--ease-out-expo), padding 420ms var(--ease-out-expo);
+}
+
+.waitlist__input::placeholder {
+  color: var(--text-faint);
+}
+
+.waitlist__input:disabled {
+  opacity: 0.4;
+}
+
+.waitlist__pill[data-state="success"] .waitlist__input {
+  flex: 0;
+  width: 0;
+  padding-inline: 0;
+  opacity: 0;
+}
+
+.waitlist__btn {
+  position: relative;
+  flex-shrink: 0;
+  height: 44px;
+  width: 132px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: var(--blue);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: width 420ms var(--ease-out-expo), background-color 360ms var(--ease-out-soft),
+    box-shadow 360ms var(--ease-out-soft);
+  box-shadow: 0 4px 20px var(--blue-glow);
+}
+
+.waitlist__btn:hover {
+  background: var(--blue-bright);
+}
+
+.waitlist__pill[data-state="loading"] .waitlist__btn {
+  width: 44px;
+  background: var(--blue);
+  cursor: wait;
+}
+
+.waitlist__pill[data-state="success"] .waitlist__btn {
+  width: 100%;
+  background: var(--success);
+  box-shadow: 0 4px 20px var(--success-glow);
+}
+
+.waitlist__btn-label,
+.waitlist__btn-success {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+  transition: opacity 220ms var(--ease-out-soft), transform 260ms var(--ease-out-soft);
+}
+
+.waitlist__btn-success {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.waitlist__pill[data-state="loading"] .waitlist__btn-label,
+.waitlist__pill[data-state="success"] .waitlist__btn-label {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+.waitlist__pill[data-state="success"] .waitlist__btn-success {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 120ms;
+}
+
+.waitlist__spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.35);
+  border-top-color: white;
+  opacity: 0;
+  transform: scale(0.6) rotate(0deg);
+  transition: opacity 200ms var(--ease-out-soft), transform 260ms var(--ease-out-soft);
+}
+
+.waitlist__pill[data-state="loading"] .waitlist__spinner {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.waitlist__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--success);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.waitlist__ring.is-pulsing {
+  animation: ring-pulse 900ms var(--ease-out-expo);
+}
+
+@keyframes ring-pulse {
+  0% {
+    opacity: 0.9;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.35;
+  }
+}
+
+.waitlist__confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.waitlist__confetti span {
+  position: absolute;
+  top: 50%;
+  left: var(--x, 50%);
+  width: 6px;
+  height: 6px;
+  background: var(--c, var(--accent));
+  border-radius: 2px;
+  opacity: 0;
+  animation: confetti-burst 800ms var(--ease-out-expo) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--tx, 40px), var(--ty, -60px)) rotate(var(--r, 180deg))
+      scale(0.4);
+  }
+}
+
+.waitlist__status {
+  min-height: 1.2em;
+  font-size: 0.875rem;
+  color: var(--text-faint);
+}
+
+/* ==================================================================
+   2. Magnetic tilt card
+   ================================================================== */
+.tilt-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #1c1a2b 0%, #12111d 100%);
+  border: 1px solid var(--border-strong);
+  perspective: 800px;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 500ms var(--ease-out-expo);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tilt-card.is-tilting {
+  transition: transform 60ms linear;
+}
+
+.tilt-card__glow {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), var(--accent-glow-soft), transparent 55%);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-soft);
+  pointer-events: none;
+}
+
+.tilt-card.is-tilting .tilt-card__glow {
+  opacity: 1;
+}
+
+.tilt-card__shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.16), transparent 60%);
+  opacity: 0;
+  transition: opacity 300ms var(--ease-out-soft);
+  pointer-events: none;
+}
+
+.tilt-card.is-tilting .tilt-card__shine {
+  opacity: 1;
+}
+
+.tilt-card__content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  transform: translateZ(40px);
+}
+
+.tilt-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-glow-soft);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--accent-bright);
+  margin-bottom: var(--space-2);
+}
+
+.tilt-card__content h3 {
+  font-size: 1.0625rem;
+}
+
+.tilt-card__content p {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  max-width: 26ch;
+}
+
+/* ==================================================================
+   3. Sliding tabs
+   ================================================================== */
+.tabs {
+  width: 100%;
+}
+
+.tabs__nav {
+  position: relative;
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: 5px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  margin-bottom: var(--space-6);
+}
+
+.tabs__indicator {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: calc(100% - 10px);
+  width: 0;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  box-shadow: 0 4px 18px var(--accent-glow-soft);
+  transition: transform 380ms var(--ease-out-expo), width 380ms var(--ease-out-expo);
+  z-index: 0;
+}
+
+.tabs__btn {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  border: 0;
+  background: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 260ms var(--ease-out-soft);
+  white-space: nowrap;
+}
+
+.tabs__btn.is-active {
+  color: white;
+}
+
+.tabs__panels {
+  display: grid;
+}
+
+.tabs__panel {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 320ms var(--ease-out-soft), transform 320ms var(--ease-out-soft);
+}
+
+.tabs__panel.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.tabs__panel h4 {
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+
+.tabs__panel p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* ==================================================================
+   4. Modal / sheet
+   ================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: transform 200ms var(--ease-out-soft), box-shadow 260ms var(--ease-out-soft),
+    background-color 260ms var(--ease-out-soft);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 6px 24px var(--accent-glow-soft);
+}
+
+.btn-accent:hover {
+  background: var(--accent-bright);
+  box-shadow: 0 10px 32px var(--accent-glow);
+}
+
+.btn-outline {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-bright);
+  color: var(--accent-bright);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: rgba(6, 5, 12, 0.6);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 360ms var(--ease-out-soft), visibility 0s linear 360ms,
+    backdrop-filter 360ms var(--ease-out-soft);
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: opacity 360ms var(--ease-out-soft), visibility 0s linear 0s,
+    backdrop-filter 360ms var(--ease-out-soft);
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(139, 92, 246, 0.08);
+  transform: translateY(28px) scale(0.94);
+  opacity: 0;
+  transition: transform 420ms var(--ease-spring), opacity 300ms var(--ease-out-soft);
+}
+
+.modal-backdrop.is-open .modal-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.modal-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-glow-soft);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: var(--accent-bright);
+  margin-bottom: var(--space-5);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 320ms var(--ease-out-soft) 80ms, transform 320ms var(--ease-out-soft) 80ms;
+}
+
+.modal-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-3);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 320ms var(--ease-out-soft) 140ms, transform 320ms var(--ease-out-soft) 140ms;
+}
+
+.modal-card p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 320ms var(--ease-out-soft) 200ms, transform 320ms var(--ease-out-soft) 200ms;
+}
+
+.modal-card__actions {
+  display: flex;
+  gap: var(--space-3);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 320ms var(--ease-out-soft) 260ms, transform 320ms var(--ease-out-soft) 260ms;
+}
+
+.modal-backdrop.is-open .modal-card__icon,
+.modal-backdrop.is-open .modal-card h3,
+.modal-backdrop.is-open .modal-card p,
+.modal-backdrop.is-open .modal-card__actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: none;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  transition: color 200ms var(--ease-out-soft), border-color 200ms var(--ease-out-soft),
+    transform 200ms var(--ease-out-soft);
+}
+
+.modal-close:hover {
+  color: var(--text);
+  border-color: var(--accent-bright);
+  transform: rotate(90deg);
+}
+
+/* ==================================================================
+   5. Accordion (animated height via grid-template-rows trick)
+   ================================================================== */
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.accordion__item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  transition: border-color 260ms var(--ease-out-soft);
+}
+
+.accordion__item.is-open {
+  border-color: var(--border-strong);
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: none;
+  border: 0;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.accordion__chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  transition: transform 340ms var(--ease-out-expo);
+  color: var(--text-faint);
+}
+
+.accordion__item.is-open .accordion__chevron {
+  transform: rotate(180deg);
+  color: var(--accent-bright);
+}
+
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 380ms var(--ease-out-expo);
+}
+
+.accordion__item.is-open .accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+.accordion__panel-inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.accordion__panel-inner p {
+  padding: 0 var(--space-5) var(--space-5);
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .tilt-card {
+    transform: none !important;
+  }
+}
