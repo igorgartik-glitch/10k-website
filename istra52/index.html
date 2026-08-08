@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISTRA 52 — презентация поселка</title>
+  <link rel="stylesheet" href="vendor/reveal.js/reveal.css" />
+  <link rel="stylesheet" href="vendor/reveal.js/theme/black.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="preloader" id="preloader"><span>ISTRA 52</span><small>загружаем 3D-презентацию</small></div>
+
+  <canvas id="village3d"></canvas>
+  <div class="aurora"></div>
+  <div class="grain"></div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <section class="slide hero" data-scene="hero" data-state="dark">
+        <div class="brand-row">
+          <div class="logo-mark"><span>I</span><em>52</em></div>
+          <div class="brand-text">ISTRA 52</div>
+        </div>
+        <h1>Посёлок<br>нового уровня<br>у Истры</h1>
+        <p class="lead">Инвестиционная презентация проекта на 52 дома в премиальной природной локации Подмосковья.</p>
+        <div class="hero-meta">
+          <span>52 дома</span><span>Истринское направление</span><span>закрытая клубная среда</span>
+        </div>
+      </section>
+
+      <section class="slide split" data-scene="map">
+        <div class="eyebrow">01 / идея</div>
+        <h2>Не просто коттеджный посёлок, а готовый образ жизни</h2>
+        <p>ISTRA 52 продаётся как редкая комбинация: природа, приватность, современная архитектура и понятная инвестиционная история.</p>
+        <div class="metrics">
+          <div><b>52</b><span>дома в единой концепции</span></div>
+          <div><b>3</b><span>сценария покупки: жизнь, отдых, инвестиция</span></div>
+          <div><b>1</b><span>сильный бренд вместо безликой земли</span></div>
+        </div>
+      </section>
+
+      <section class="slide" data-scene="roads">
+        <div class="eyebrow">02 / позиционирование</div>
+        <h2>Логотип и бренд</h2>
+        <div class="brand-board">
+          <div class="big-logo"><span>I</span><em>52</em></div>
+          <div>
+            <h3>ISTRA 52</h3>
+            <p>Название звучит как private club: коротко, дорого, легко запоминается. Число 52 превращает масштаб проекта в часть бренда.</p>
+            <p class="tagline">«52 дома. Один закрытый мир у леса и воды.»</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide dark-panel" data-scene="orbit">
+        <div class="eyebrow">03 / ценность локации</div>
+        <h2>Истра — направление для жизни вне города, но не вне цивилизации</h2>
+        <p>Концепция строится вокруг тишины, леса, воды, архитектурной цельности и быстрого доступа к городской инфраструктуре.</p>
+        <div class="pill-row">
+          <span>лес</span><span>вода</span><span>частная территория</span><span>семейная среда</span><span>выходные без перелётов</span>
+        </div>
+        <aside class="notes">Замените общие формулировки конкретными расстояниями, временем в пути и преимуществами участка после уточнения адреса.</aside>
+      </section>
+
+      <section class="slide" data-scene="masterplan">
+        <div class="eyebrow">04 / masterplan</div>
+        <h2>52 дома как цельный сценарий движения</h2>
+        <p>Визуальная логика: въездная группа, тихие улицы, приватные участки, центральная прогулочная ось и общественные точки притяжения.</p>
+        <div class="legend">
+          <span><i class="dot house"></i> дома</span>
+          <span><i class="dot road"></i> внутренние улицы</span>
+          <span><i class="dot water"></i> вода / прогулка</span>
+        </div>
+      </section>
+
+      <section class="slide split" data-scene="houses">
+        <div class="eyebrow">05 / продукт</div>
+        <h2>Архитектура без визуального шума</h2>
+        <p>Предлагаем продавать дома как коллекцию из трёх типологий: компактный семейный, расширенный семейный и видовой дом с террасой.</p>
+        <div class="cards three">
+          <article><b>Type A</b><span>дом для постоянной жизни</span></article>
+          <article><b>Type B</b><span>семейный дом с кабинетом</span></article>
+          <article><b>Type C</b><span>видовой дом / премиум-лот</span></article>
+        </div>
+      </section>
+
+      <section class="slide lifestyle" data-scene="lifestyle">
+        <div class="eyebrow">06 / lifestyle</div>
+        <h2>Продаём не метры. Продаём ощущение.</h2>
+        <div class="lifestyle-grid">
+          <div><strong>утро</strong><span>кофе на террасе, лесной воздух</span></div>
+          <div><strong>день</strong><span>работа из дома, тишина, приватность</span></div>
+          <div><strong>вечер</strong><span>камин, гости, прогулочная зона</span></div>
+          <div><strong>выходные</strong><span>вода, спорт, семейный отдых</span></div>
+        </div>
+      </section>
+
+      <section class="slide" data-scene="amenities">
+        <div class="eyebrow">07 / инфраструктура</div>
+        <h2>Закрытая среда, где всё выглядит продуманным</h2>
+        <div class="timeline">
+          <div><b>01</b><span>въездная группа и охрана</span></div>
+          <div><b>02</b><span>центральный променад</span></div>
+          <div><b>03</b><span>детская и спортивная зона</span></div>
+          <div><b>04</b><span>гостевая парковка и сервис</span></div>
+        </div>
+      </section>
+
+      <section class="slide split" data-scene="finance">
+        <div class="eyebrow">08 / коммерческая история</div>
+        <h2>Проект удобно упаковывается для продажи</h2>
+        <p>Ключевая мысль для инвестора: вместо набора участков мы продаём брендированный продукт с понятной ценовой лестницей.</p>
+        <div class="bars">
+          <div><span>базовые лоты</span><i style="width:58%"></i></div>
+          <div><span>семейные лоты</span><i style="width:78%"></i></div>
+          <div><span>премиум-лоты</span><i style="width:96%"></i></div>
+        </div>
+      </section>
+
+      <section class="slide" data-scene="sales">
+        <div class="eyebrow">09 / продажи</div>
+        <h2>Продажа через эмоцию + дефицит</h2>
+        <div class="cards four">
+          <article><b>Hero-видео</b><span>3D-облёт посёлка</span></article>
+          <article><b>VIP-просмотр</b><span>не экскурсия, а сценарий</span></article>
+          <article><b>Карта лотов</b><span>интерактивная бронь</span></article>
+          <article><b>Закрытый клуб</b><span>комьюнити до покупки</span></article>
+        </div>
+      </section>
+
+      <section class="slide finale" data-scene="finale">
+        <div class="brand-row centered">
+          <div class="logo-mark"><span>I</span><em>52</em></div>
+          <div class="brand-text">ISTRA 52</div>
+        </div>
+        <h2>52 дома.<br>Одна история.<br>Один покупательский магнит.</h2>
+        <p>Следующий шаг — заменить примерные данные фактическими параметрами участка, ценами, генпланом и фото/рендерами.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="vendor/reveal.js/reveal.js"></script>
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
