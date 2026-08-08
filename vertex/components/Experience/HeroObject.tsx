@@ -4,13 +4,9 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { MeshDistortMaterial, Icosahedron } from "@react-three/drei";
 import * as THREE from "three";
+import { STATIONS } from "./stations";
 
-/**
- * The hero "core" object: a distorted icosahedron that idles with a slow autorotate
- * and tilts toward the pointer for a subtle parallax feel. Distortion + emissive glow
- * read as "alive machinery" rather than a static logo.
- */
-export function Core({ spin = true }: { spin?: boolean }) {
+export function HeroObject({ spin = true }: { spin?: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null);
 
@@ -21,15 +17,15 @@ export function Core({ spin = true }: { spin?: boolean }) {
       meshRef.current.rotation.x += delta * 0.05;
     }
     if (groupRef.current) {
-      const targetX = state.pointer.y * 0.15;
-      const targetY = state.pointer.x * 0.25;
+      const targetX = state.pointer.y * 0.1;
+      const targetY = state.pointer.x * 0.18;
       groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetX, 0.04);
       groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetY, 0.04);
     }
   });
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} position={[0, 0, STATIONS.core.z]}>
       <Icosahedron ref={meshRef} args={[1.6, 6]}>
         <MeshDistortMaterial
           color="#2a2a2a"

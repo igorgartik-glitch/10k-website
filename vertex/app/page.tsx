@@ -1,18 +1,27 @@
+"use client";
+
 import { Header } from "@/components/Header/Header";
-import { HeroScene } from "@/components/HeroScene/HeroScene";
-import { CapabilitiesScene } from "@/components/CapabilitiesScene/CapabilitiesScene";
-import { Features } from "@/components/Features/Features";
-import { SpecFooter } from "@/components/SpecFooter/SpecFooter";
+import { Experience } from "@/components/Experience/Experience";
+import { HeroCopy } from "@/components/Sections/HeroCopy";
+import { CapabilitiesCopy } from "@/components/Sections/CapabilitiesCopy";
+import { FeaturesCopy } from "@/components/Sections/FeaturesCopy";
+import { SpecsCopy } from "@/components/Sections/SpecsCopy";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 export default function Home() {
+  const reducedMotion = useReducedMotion();
+  const progressRef = useScrollProgress(!reducedMotion);
+
   return (
     <>
+      <Experience progressRef={progressRef} animate={!reducedMotion} />
       <Header />
-      <main>
-        <HeroScene />
-        <CapabilitiesScene />
-        <Features />
-        <SpecFooter />
+      <main className="relative z-10">
+        <HeroCopy />
+        <CapabilitiesCopy />
+        <FeaturesCopy />
+        <SpecsCopy />
       </main>
     </>
   );

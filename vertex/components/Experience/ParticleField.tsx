@@ -4,6 +4,8 @@ import { useMemo, useRef } from "react";
 import type { RefObject } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { STATIONS } from "./stations";
+import { localProgress } from "@/hooks/useScrollProgress";
 
 const COUNT = 2000;
 
@@ -35,10 +37,9 @@ function torusKnotPoint(t: number) {
 }
 
 /**
- * A point cloud that idles as a random scatter and assembles into a torus-knot
- * lattice as `progressRef.current.value` (driven by ScrollTrigger, mutated outside
- * React) goes 0 -> 1. Reading a ref instead of props/state keeps this at 60fps
- * without triggering React re-renders on every scroll tick.
+ * A point cloud that idles as a random scatter and assembles into a torus-knot lattice
+ * as the camera passes through this station. Reads global scroll progress from a ref
+ * (no React re-renders) and remaps it to this station's own local 0..1 band.
  */
 export function ParticleField({
   progressRef,
@@ -71,10 +72,9 @@ export function ParticleField({
   useFrame((state) => {
     if (!pointsRef.current) return;
     const positions = pointsRef.current.geometry.attributes.position as THREE.BufferAttribute;
-    // Mutate the geometry's own buffer in place — it's already a fresh, per-instance
-    // typed array (not a memoized value), so there's no immutability concern here.
     const array = positions.array as Float32Array;
-    const t = progressRef.current.value;
+    const [start, end] = STATIONS.particles.band;
+    const t = localProgress(progressRef.current.value, start, end);
 
     for (let i = 0; i < COUNT; i++) {
       const ix = i * 3;
@@ -93,7 +93,7 @@ export function ParticleField({
   });
 
   return (
-    <points ref={pointsRef}>
+    <points ref={pointsRef} position={[0, 0, STATIONS.particles.z]}>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[scattered, 3]} />
       </bufferGeometry>
