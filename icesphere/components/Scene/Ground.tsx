@@ -15,10 +15,14 @@ import { useSnowTrailTexture } from "./useSnowTrailTexture";
  * terrainHeight, вторая статичная карта смещения конфликтовала бы с ней.
  */
 function useGroundTextures() {
+  // NEXT_PUBLIC_BASE_PATH — см. next.config.ts: на GitHub Pages статика
+  // живёт под /10k-website/icesphere/, а basePath из next.config Next.js
+  // применяет сам только к _next/ и next/image, не к произвольным строкам.
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [colorMap, normalMap, roughnessMap] = useTexture([
-    "/textures/snow/color.webp",
-    "/textures/snow/normal.webp",
-    "/textures/snow/roughness.webp",
+    `${basePath}/textures/snow/color.webp`,
+    `${basePath}/textures/snow/normal.webp`,
+    `${basePath}/textures/snow/roughness.webp`,
   ]);
 
   useMemo(() => {
