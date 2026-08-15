@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/**
+ * Только светлая тема, без auto-dark по системной настройке. Зритель
+ * выезжает из светлой снежной сцены — тёмная страница читалась бы как
+ * переход на другой сайт. Заливка перехода (lib/config.ts::transition.fillColor)
+ * совпадает с --color-bg ниже — тогда стыка между сценой и лендингом не видно.
+ */
+:root {
+  --color-bg: #eef3f7;
+  --color-ink-1: #16202a; /* основной текст */
+  --color-ink-2: #4c5c68; /* вторичный текст */
+  --color-ink-3: #8695a1; /* подписи, метки */
+  --color-accent: #2f6f9e;
+  --color-line: rgba(22, 32, 42, 0.12);
+  --color-surface: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-ink-1);
+  --font-sans: var(--font-sans-family);
+  --font-mono: var(--font-mono-family);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink-1);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
